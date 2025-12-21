@@ -62,6 +62,15 @@ def predict_harvest():
         data = request.json
         
         # 1. Extract Input
+        required_fields = ['seed_id', 'soil_type_id', 'land_area', 'plant_qty', 'harvest_qty']
+        missing_fields = [field for field in required_fields if field not in data]
+        
+        if missing_fields:
+             return jsonify({
+                "status": "error", 
+                "message": f"Field wajib belum diisi: {', '.join(missing_fields)}"
+            }), 400
+
         seed_id = int(data.get('seed_id'))
         soil_id = int(data.get('soil_type_id'))
         land_area = float(data.get('land_area'))    # m2
