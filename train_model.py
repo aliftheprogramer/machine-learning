@@ -69,6 +69,10 @@ for _ in range(2000): # Buat 2000 baris data sejarah
 
 df = pd.DataFrame(data_dummy)
 
+# Simpan ke CSV agar bisa dilihat user
+df.to_csv('agricultural_data_dummy.csv', index=False)
+print("✅ Data dummy berhasil disimpan ke 'agricultural_data_dummy.csv'")
+
 # ==========================================
 # 2. TRAINING RANDOM FOREST
 # ==========================================

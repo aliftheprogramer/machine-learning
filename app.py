@@ -1,9 +1,11 @@
 from flask import Flask, request, jsonify
+from flask_cors import CORS
 import pickle
 import numpy as np
 from datetime import datetime
 
 app = Flask(__name__)
+CORS(app) # Enable Cross-Origin Resource Sharing for all routes
 
 # Load Model & Metadata
 try:
